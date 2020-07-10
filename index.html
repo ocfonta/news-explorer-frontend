@@ -1,30 +1,67 @@
+<!-- Модификатор active для menu__button управляет box-shadow для активной страницы
+    Модификатор invisible скрывает разделы , через js после авторизации куда-то будет добавляться, а откуда-то убираться
+-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mesto</title>
- 
-  <link rel="stylesheet" href="style.40e69bdf1026f6d7ec77.css">
+  <meta name="author" content="Люба Пономарева">
+  <meta name="description" content="Сайт по поиску и сохранению новостей">
+  <link rel="icon" href="./images/favicon.png" type="image/svg">
+  <title>News-explorer</title>
+
+  <link rel="stylesheet" href="style.4d2147a882277a52ac1a.css,news.4d2147a882277a52ac1a.css">
 </head>
 <body>
   <div class="root">
-    <header class="header root__section">
-     <img src="./images/logo.svg" alt="mesto logo" class="logo"><!-- -->
-    </header>
-    <div class="profile root__section">
-      <div class="user-info">
-        <div class="user-info__photo"></div>
-        <div class="user-info__data">
-          <h1 class="user-info__name"></h1>
-          <p class="user-info__job"></p>
-          <button class="edit-button user-info__edit-button">Edit</button>
-        </div>
-        <button class="button user-info__button">+</button>
-      
+    <header class="header">
+
+      <div class="head">
+        <div class="logo">
+          <h1 class="logo__text">NewsExplorer</h1>
       </div>
-    </div>
+      <nav class="menu">
+        <ul class="menu-ul">
+          <li class="menu__button active"><a href="#" class="link menu__link active-link">Главная</a></li>
+          <li class="menu__button menu__button_type_saves invisible"><a href="" class="link menu__link">Сохраненные статьи</a></li>
+          <li class="menu__button menu__button_type_auth "><a href="news.html" class="link menu__link active-link">Авторизоваться</a></li>
+          <li class="menu__button menu__button_type_profile invisible"><a href="" class="link menu__link"><span class="menu__link-span active-link">Грета </span><img class="menu__icon" alt ="icon" src="./images/union.svg"></a></li>
+        </ul>
+      </nav>
+      </div>
+      <div class="search">
+        <h2 class="search__title">Что в мире творится?</h2>
+        <h3 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h3>
+        <form class="search__form" name="newstheme">
+        <div class="search__container">
+          <input type="text" name="news" class="search__input" placeholder="Введите тему новости">
+          <button class="button button_color_blue search__news-button">Искать</button>
+        </div>
+      </form>
+      </div>
+    </header>
+    <section class="about">
+      <img class="about__avatar" alt ="avatar" src="./images/author-avatar.png">
+       <div class="about__author">
+         <h2 class ="about__title">Об авторе</h2>
+         <p class = "about__text about__text-info">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+         <p class = "about__text about__text-info">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+       </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
+      <nav class="footer__links">
+        <ul class="footer__ul">
+          <li class="footer__li "><a href="" class="link footer__link footer__link-main">Главная</a></li>
+          <li class="footer__li"><a href="https://praktikum.yandex.ru" target="_blank" class="link footer__link footer__link-praktikum">Яндекс.Практикум</a></li>
+          <li class="footer__li"><a href="" class="link footer__icon-gh"><img class="footer__icon footer__icon-gh" alt ="icon" src="./images/github-icon.png"></a></li>
+          <li class="footer__li"><a href="" class="link"><img class="footer__icon" alt ="icon" src="./images/fb-icon.png"></a></li>
+        </ul>
+     </nav>
+  </footer>
+
     <div class="places-list root__section">
     </div>
     <div class="popup" id="newplace">
@@ -45,10 +82,10 @@
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form popup__form-edit" name="edit" >
             <input type="text" name="nameUser" id="username" class="popup__input popup__input_type_user-name" required minlength="2" maxlength="30" placeholder="Имя">
-            <span id="error-name" class="error-message"></span> 
+            <span id="error-name" class="error-message"></span>
 
             <input type="text" name="jobUser" id="about" class="popup__input popup__input_type_user-job" required minlength="2" maxlength="30" placeholder="О себе">
-            <span id="error-job" class="error-message" name="userJobError"></span> 
+            <span id="error-job" class="error-message" name="userJobError"></span>
             <button type class="button popup__button popup__edit-button" disabled>Сохранить</button>
         </form>
       </div>
@@ -58,8 +95,9 @@
         <div class="popup__content" id="popup__content-img">
             <img src="./images/close.svg" alt="" class="popup__close" id="popup__close-img"><!---->
         </div>
-        <script src="main.af99e1e8c97c20372cd5.js"></script> 
 
+      </div>
+  </div>  <script src="main.31aa8026d22272c4a9f8.js"></script>
 </body>
 
 </html>
