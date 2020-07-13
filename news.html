@@ -1,5 +1,4 @@
-<!-- Модификатор active для menu__button управляет box-shadow для активной страницы
-    Модификатор invisible скрывает разделы , через js после авторизации куда-то будет добавляться, а откуда-то убираться
+<!--
 -->
 <!DOCTYPE html>
 <html lang="ru">
@@ -12,10 +11,124 @@
   <link rel="icon" href="./images/favicon.png" type="image/svg">
   <title>News-explorer</title>
 
-  <link rel="stylesheet" href="news.5bb7d84ff3af3f0f0661.css">
+  <link rel="stylesheet" href="news.468b3ae987bf528cbd90.css">
 </head>
 <body>
- <h1 class="jjj">ПРИВЕТ</h1>
+  <header class="header">
+    <div class="head">
+      <div class="logo">
+        <h1 class="logo__text">NewsExplorer</h1>
+    </div>
+    <nav class="menu">
+      <ul class="menu-ul">
+        <li class="menu__button"><a href="index.html" class="link menu__link ">Главная</a></li>
+        <li class="menu__button menu__button_type_saves active"><a href="news.html" class="link menu__link">Сохраненные статьи</a></li>
+        <li class="menu__button menu__button_type_profile"><a href="index.html" class="link menu__link menu__link-auth"><span class="menu__link-span ">Грета </span><img class="menu__icon" alt ="icon" src="./images/union.png"></a></li>
+      </ul>
+    </nav>
+    </div>
+    <div class="news-header">
+      <p class="news-header__description">Сохраненные статьи</p>
+      <p class="news-header__user-articles">Грета, у вас <span class="news-header__articles-amount">5</span> сохранённых статей</p>
+      <p class="news-header__keywords">По ключевым словам: <span class="news-header__keyword">Природа</span>, <span class="news-header__keyword">Тайга </span>и <span class="news-header__keywords-more">2 другим</span></p>
+    </div>
+
+  </header>
+  <!-- Cards -->
+  <section class="news-result news-result_type_notfound root__section invisible">
+    <img class="news-result__notfound-image" alt ="not_found" src="./images/not-found_v1.svg">
+    <h3 class="news-result__notf-title">Ничего не найдено</h3>
+    <p class="news-result__notf-description">Вы пока не сохранили ни одной статьи</p>
+  </section>
+  <section class="news-result root__section">
+    <div class="cards-container">
+      <div class="card">
+<div class="card__delete-button">
+  <span class="card__delete-notice">Убрать из сохранённых</span>
+      <button type="button" class="card__delete-icon"></button>
+ </div>
+ <span class="card__keyword">Природа</span>
+
+       <a href="https://lenta.ru/" class="card__link" target="_blank">
+          <img class="card__image" alt ="image" src="./images/paki.jpeg">
+          <span class="card__date">2 августа, 2019</span>
+          <p class="card__description">Национальное достояние – парки</p>
+          <p class="card__content">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+          <span class="card__source">Лента.ру</span>
+       </a>
+    </div>
+    <div class="card">
+      <div class="card__delete-button">
+        <span class="card__delete-notice">Убрать из сохранённых</span>
+            <button type="button" class="card__delete-icon"></button>
+       </div>
+       <span class="card__keyword">Природа</span>
+      <a href="https://meduza.io/" class="card__link" target="_blank">
+      <img class="card__image" alt ="image" src="./images/nec.jpeg">
+      <span class="card__date">2 августа, 2019</span>
+      <p class="card__description">Лесные огоньки: история одной фотографии</p>
+      <p class="card__content">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
+        из местных чудес природы.</p>
+      <span class="card__source">медуза</span>
+    </a>
+  </div>
+  <div class="card">
+    <div class="card__delete-button">
+      <span class="card__delete-notice">Убрать из сохранённых</span>
+          <button type="button" class="card__delete-icon"></button>
+     </div>
+     <span class="card__keyword">Тайга</span>
+    <a href="https://ria.ru/" class="card__link" target="_blank">
+    <img class="card__image" alt ="image" src="./images/3.jpeg">
+    <span class="card__date">2 августа, 2019</span>
+    <p class="card__description">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</p>
+    <p class="card__content">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+    <span class="card__source">риа</span>
+  </a>
+  </div>
+  <div class="card">
+    <div class="card__delete-button">
+      <span class="card__delete-notice">Убрать из сохранённых</span>
+          <button type="button" class="card__delete-icon"></button>
+     </div>
+     <span class="card__keyword">Парки</span>
+
+     <a href="https://lenta.ru/" class="card__link" target="_blank">
+      <img class="card__image" alt ="image" src="./images/paki.jpeg">
+      <span class="card__date">2 августа, 2019</span>
+      <p class="card__description">Национальное достояние – парки</p>
+      <p class="card__content">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+      <span class="card__source">Лента.ру</span>
+   </a>
+        </div>
+        <div class="card">
+          <div class="card__delete-button">
+            <span class="card__delete-notice">Убрать из сохранённых</span>
+                <button type="button" class="card__delete-icon"></button>
+           </div>
+           <span class="card__keyword">Фотография</span>
+           <a href="https://meduza.io/" class="card__link" target="_blank">
+            <img class="card__image" alt ="image" src="./images/nec.jpeg">
+            <span class="card__date">2 августа, 2019</span>
+            <p class="card__description">Лесные огоньки: история одной фотографии</p>
+            <p class="card__content">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
+              из местных чудес природы.</p>
+            <span class="card__source">медуза</span>
+          </a>
+              </div>
+ </div>
+ </section>
+ <footer class="footer">
+  <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
+  <nav class="footer__links">
+    <ul class="footer__ul">
+      <li class="footer__li "><a href="" class="link footer__link footer__link-main">Главная</a></li>
+      <li class="footer__li"><a href="https://praktikum.yandex.ru" target="_blank" class="link footer__link footer__link-praktikum">Яндекс.Практикум</a></li>
+      <li class="footer__li"><a href="https://github.com/ocfonta/news-explorer-frontend" class="link footer__icon-gh"><img class="footer__icon footer__icon-gh" alt ="icon" src="./images/github-icon.png"></a></li>
+      <li class="footer__li"><a href="https://facebook.com/" class="link"><img class="footer__icon" alt ="icon" src="./images/fb-icon.png"></a></li>
+    </ul>
+ </nav>
+</footer>
  <script src="news.528c06cdf66ddc489d01.js"></script>
 </body>
 

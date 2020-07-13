@@ -1,5 +1,18 @@
 <!-- Модификатор active для menu__button управляет box-shadow для активной страницы
-    Модификатор invisible скрывает разделы , через js после авторизации куда-то будет добавляться, а откуда-то убираться
+
+    Модификатор invisible скрывает разделы
+
+    active-link меняет цвет текста
+
+    у чекбоксов сохранения планирую менять цвет через js, добавляя модификаторы
+
+    попыталась показать все, что требуется, модификатор кнопки card__save-button_state_nolog добавляет сообщение "Войдите, чтобы сохр. статьи"
+
+   у popup закомменчен display:none, временно попапы скрыты под классом invisible, в дальнейшем открытие попапов будет реализовано через display:none
+
+   для popup__button добавляется hover если есть модификатор button_color_blue, добавляется js после того, как с кнопки снят disable
+   Я показала разные состояния в попапах, в попапе 'вход' (не залочено, hover работает), в попапе 'регистрация' кнопка залочена, hover не работает, как и active соответственно
+
 -->
 <!DOCTYPE html>
 <html lang="ru">
@@ -12,7 +25,7 @@
   <link rel="icon" href="./images/favicon.png" type="image/svg">
   <title>News-explorer</title>
 
-  <link rel="stylesheet" href="main.f80adc43247540c8e7e4.css">
+  <link rel="stylesheet" href="main.83d72365c0d53568f961.css">
 </head>
 <body>
   <div class="root">
@@ -24,10 +37,10 @@
       </div>
       <nav class="menu">
         <ul class="menu-ul">
-          <li class="menu__button active"><a href="#" class="link menu__link active-link">Главная</a></li>
-          <li class="menu__button menu__button_type_saves invisible"><a href="" class="link menu__link">Сохраненные статьи</a></li>
-          <li class="menu__button menu__button_type_auth "><a href="news.html" class="link menu__link active-link">Авторизоваться</a></li>
-          <li class="menu__button menu__button_type_profile invisible"><a href="" class="link menu__link"><span class="menu__link-span active-link">Грета </span><img class="menu__icon" alt ="icon" src="./images/union.svg"></a></li>
+          <li class="menu__button active"><a href="index.html" class="link menu__link active-link">Главная</a></li>
+          <li class="menu__button menu__button_type_saves "><a href="news.html" class="link menu__link">Сохраненные статьи</a></li>
+          <li class="menu__button menu__button_type_auth invisible"><span class="link menu__link active-link">Авторизоваться</span></li>
+          <li class="menu__button menu__button_type_profile"><a href="" class="link menu__link"><span class="menu__link-span active-link">Грета </span><img class="menu__icon" alt ="icon" src="./images/union.svg"></a></li>
         </ul>
       </nav>
       </div>
@@ -42,6 +55,68 @@
       </form>
       </div>
     </header>
+        <!-- Раздел поиска  -->
+    <section class="news-result news-result_type_prelouder root__section invisible" >
+      <i class="circle-preloader"></i>
+      <p class="news-result__preloader-text">Идет поиск новостей...</p>
+    </section>
+        <section class="news-result news-result_type_notfound root__section invisible">
+          <img class="news-result__notfound-image" alt ="not_found" src="./images/not-found_v1.svg">
+          <h3 class="news-result__notf-title">Ничего не найдено</h3>
+          <p class="news-result__notf-description">К сожалению по вашему запросу
+            ничего не найдено.</p>
+        </section>
+        <section class="news-result root__section">
+          <h2 class="news-result__title">Результаты поиска</h2>
+          <div class="cards-container">
+            <div class="card">
+      <div class="card__save-button card__save-button_state_nolog">
+        <span class="card__nolog-notice ">Войдите, чтобы сохранять статьи</span>
+            <button type="button" class="card__save-icon card__save-icon_state_nosaved"></button>
+       </div>
+
+             <a href="https://lenta.ru/" class="card__link" target="_blank">
+                <img class="card__image" alt ="image" src="./images/image_08.png">
+                <span class="card__date">2 августа, 2019</span>
+                <p class="card__description">Национальное достояние – парки</p>
+                <p class="card__content">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                <span class="card__source">Лента.ру</span>
+             </a>
+          </div>
+          <div class="card">
+            <div class="card__save-button">
+              <span class="card__nolog-notice">Войдите, чтобы сохранять статьи</span>
+                  <button type="button" class="card__save-icon card__save-icon_state_saved"></button>
+             </div>
+            <a href="https://meduza.io/" class="card__link" target="_blank">
+            <img class="card__image" alt ="image" src="./images/image_04.png">
+            <span class="card__date">2 августа, 2019</span>
+            <p class="card__description">Лесные огоньки: история одной фотографии</p>
+            <p class="card__content">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
+              из местных чудес природы.</p>
+            <span class="card__source">медуза</span>
+          </a>
+        </div>
+        <div class="card">
+          <div class="card__save-button card__save-button_state_nolog">
+            <span class="card__nolog-notice">Войдите, чтобы сохранять статьи</span>
+                <button type="button" class="card__save-icon card__save-icon_state_nosaved"></button>
+           </div>
+          <a href="https://ria.ru/" class="card__link" target="_blank">
+          <img class="card__image" alt ="image" src="./images/image_07.png">
+          <span class="card__date">2 августа, 2019</span>
+          <p class="card__description">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</p>
+          <p class="card__content">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+          <span class="card__source">риа</span>
+        </a>
+        </div>
+
+
+          </div>
+
+          <button type="button" class="button button_color_white button_type_show">Показать еще</button>
+
+       </section>
     <section class="about">
       <img class="about__avatar" alt ="avatar" src="./images/author-avatar.png">
        <div class="about__author">
@@ -54,31 +129,67 @@
       <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
       <nav class="footer__links">
         <ul class="footer__ul">
-          <li class="footer__li "><a href="" class="link footer__link footer__link-main">Главная</a></li>
+          <li class="footer__li "><a href="index.html" class="link footer__link footer__link-main">Главная</a></li>
           <li class="footer__li"><a href="https://praktikum.yandex.ru" target="_blank" class="link footer__link footer__link-praktikum">Яндекс.Практикум</a></li>
-          <li class="footer__li"><a href="" class="link footer__icon-gh"><img class="footer__icon footer__icon-gh" alt ="icon" src="./images/github-icon.png"></a></li>
-          <li class="footer__li"><a href="" class="link"><img class="footer__icon" alt ="icon" src="./images/fb-icon.png"></a></li>
+          <li class="footer__li"><a href="https://github.com/ocfonta/news-explorer-frontend" class="link footer__icon-gh"><img class="footer__icon footer__icon-gh" alt ="icon" src="./images/github-icon.png"></a></li>
+          <li class="footer__li"><a href="https://facebook.com/" class="link"><img class="footer__icon" alt ="icon" src="./images/fb-icon.png"></a></li>
         </ul>
      </nav>
   </footer>
-
-    <div class="places-list root__section">
-    </div>
-    <div class="popup" id="newplace">
+<!-- popup -->
+   <div class="popup invisible" id="signin" >
       <div class="popup__content">
-         <img src="./images/close.svg" alt="" class="popup__close"> <!---->
-        <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form" name="new">
-            <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название">
-            <input type="text" name="link" class="popup__input popup__input_type_link-url" placeholder="Ссылка на картинку">
-            <button class="button popup__card-button" disabled>+</button>
+         <img src="./images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Вход</h3>
+        <form class="popup__form" name="signin">
+          <span class="popup__form-description">Email</span>
+          <input type="text" name="email"  class="popup__input popup__input_type_email " placeholder="Введите почту">
+          <span id="error-email" class="popup__error-message ">Неверный формат email</span>
+          <span class="popup__form-description">Пароль</span>
+          <input type="text" name="password" class="popup__input popup__input_type_password" required minlength="6"  placeholder="Введите пароль">
+          <span id="error-password" class="popup__error-message" name="password-error">Пароль должен содержать менее 6 символов</span>
+          <button type="button" class="popup__button button_color_blue">Войти</button>
+
+
+        </form>
+        <span class="popup__else-message">или <span class="link popup__else-popup-link">Зарегистрироваться</span>
+      </div>
+    </div>
+    <div class="popup invisible" id="signup" >
+      <div class="popup__content">
+         <img src="./images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Регистрация</h3>
+        <form class="popup__form" name="signup">
+          <span class="popup__form-description">Email</span>
+          <input type="text" name="email"  class="popup__input popup__input_type_email" placeholder="Введите почту">
+          <span id="error-email" class="popup__error-message">Неверный формат email</span>
+          <span class="popup__form-description">Пароль</span>
+          <input type="text" name="password" class="popup__input popup__input_type_password" required minlength="6"  placeholder="Введите пароль">
+          <span id="error-password" class="popup__error-message" name="password-error">Пароль должен содержать менее 6 символов</span>
+          <span class="popup__form-description">Имя</span>
+          <input type="text" name="email"  class="popup__input popup__input_type_email" placeholder="Введите ваше имя">
+          <span id="error-name" class="popup__error-message">Такой пользователь уже есть</span>
+          <button type class="popup__button" disabled>Зарегистрироваться</button>
+
+
+        </form>
+        <span class="popup__else-message">или <span class="link popup__else-popup-link">Войти</span>
+      </div>
+    </div>
+    <div class="popup invisible" id="successfully" >
+           <div class="popup__content popup__content_type_success">
+         <img src="./images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+          <span class="link popup__else-popup-link popup__else-popup-link-success">Выполнить вход</span>
+
         </form>
       </div>
     </div>
+<!-- -->
 
-    <div class="popup" id="profile">
+    <!-- <div class="popup" id="profile">
       <div class="popup__content">
-         <img src="./images/close.svg" alt="" class="popup__close" id="popup__close-edit"> <!---->
+         <img src="./images/close.svg" alt="" class="popup__close" id="popup__close-edit">
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form popup__form-edit" name="edit" >
             <input type="text" name="nameUser" id="username" class="popup__input popup__input_type_user-name" required minlength="2" maxlength="30" placeholder="Имя">
@@ -93,11 +204,11 @@
 
       <div class="popup" id="popup-img">
         <div class="popup__content" id="popup__content-img">
-            <img src="./images/close.svg" alt="" class="popup__close" id="popup__close-img"><!---->
+            <img src="./images/close.svg" alt="" class="popup__close" id="popup__close-img">
         </div>
-
       </div>
-  </div>  <script src="main.31aa8026d22272c4a9f8.js"></script>
+  </div> -->
+  <script src="main.31aa8026d22272c4a9f8.js"></script>
 </body>
 
 </html>
