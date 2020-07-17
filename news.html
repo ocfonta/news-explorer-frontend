@@ -11,22 +11,26 @@
   <link rel="icon" href="./images/favicon.png" type="image/svg">
   <title>News-explorer</title>
 
-  <link rel="stylesheet" href="news.468b3ae987bf528cbd90.css">
+  <link rel="stylesheet" href="news.7492365ba1046c440601.css">
 </head>
 <body>
   <header class="header">
+    <div class="header__menu-block">
     <div class="head">
       <div class="logo">
-        <h1 class="logo__text">NewsExplorer</h1>
+        <h1 class="logo__text logo__text_color_bl">NewsExplorer</h1>
     </div>
     <nav class="menu">
-      <ul class="menu-ul">
+      <img class="menu__icon-all" alt ="icon" src="./images/menu.svg">
+      <img src="./images/close.svg" alt="icon" class="menu__close-icon invisible">
+      <ul class="menu-ul menu__is-closed">
         <li class="menu__button"><a href="index.html" class="link menu__link ">Главная</a></li>
         <li class="menu__button menu__button_type_saves active"><a href="news.html" class="link menu__link">Сохраненные статьи</a></li>
         <li class="menu__button menu__button_type_profile"><a href="index.html" class="link menu__link menu__link-auth"><span class="menu__link-span ">Грета </span><img class="menu__icon" alt ="icon" src="./images/union.png"></a></li>
       </ul>
     </nav>
     </div>
+  </div>
     <div class="news-header">
       <p class="news-header__description">Сохраненные статьи</p>
       <p class="news-header__user-articles">Грета, у вас <span class="news-header__articles-amount">5</span> сохранённых статей</p>
@@ -122,10 +126,10 @@
   <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
   <nav class="footer__links">
     <ul class="footer__ul">
-      <li class="footer__li "><a href="" class="link footer__link footer__link-main">Главная</a></li>
-      <li class="footer__li"><a href="https://praktikum.yandex.ru" target="_blank" class="link footer__link footer__link-praktikum">Яндекс.Практикум</a></li>
-      <li class="footer__li"><a href="https://github.com/ocfonta/news-explorer-frontend" class="link footer__icon-gh"><img class="footer__icon footer__icon-gh" alt ="icon" src="./images/github-icon.png"></a></li>
-      <li class="footer__li"><a href="https://facebook.com/" class="link"><img class="footer__icon" alt ="icon" src="./images/fb-icon.png"></a></li>
+      <li class="footer__li footer__link-main"><a href="index.html" class="link footer__link footer__link-main">Главная</a></li>
+      <li class="footer__li footer__link-praktikum"><a href="https://praktikum.yandex.ru" target="_blank" class="link footer__link footer__link-praktikum">Яндекс.Практикум</a></li>
+      <li class="footer__li footer__icon-gh"><a href="https://github.com/ocfonta/news-explorer-frontend" class="link footer__icon-gh"><img class="footer__icon" alt ="icon" src="./images/github-icon.png"></a></li>
+      <li class="footer__li footer__icon-fb"><a href="https://facebook.com/" class="link "><img class="footer__icon footer__icon-fb" alt ="icon" src="./images/fb-icon.png"></a></li>
     </ul>
  </nav>
 </footer>

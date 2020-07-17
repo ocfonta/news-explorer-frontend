@@ -13,6 +13,18 @@
    для popup__button добавляется hover если есть модификатор button_color_blue, добавляется js после того, как с кнопки снят disable
    Я показала разные состояния в попапах, в попапе 'вход' (не залочено, hover работает), в попапе 'регистрация' кнопка залочена, hover не работает, как и active соответственно
 
+    меню на маленьких экранах регулируется модификатором invisible и  menu__is-open и menu__is-closed, а также header__is-open
+    для корректного отображения меню:
+    1) Состояние открытого меню:
+       1. к header__menu-block добавить модификатор header__is-open
+       2. к menu-ul добавить модификатор menu__is-open
+       3. Изображению menu__icon-all добавляется модиф invisible
+       4. У изображения menu__close-icon убирается модиф invisible
+    2) Закрытое меню:
+       1. у header__menu-block убрать модификатор header__is-open
+       2. у menu-ul сменить  модификатор menu__is-open на  menu__is-closed
+       3. Изображению menu__close-icon  добавляется модиф invisible
+       4. У изображения menu__icon-all убирается модиф invisible
 -->
 <!DOCTYPE html>
 <html lang="ru">
@@ -25,18 +37,21 @@
   <link rel="icon" href="./images/favicon.png" type="image/svg">
   <title>News-explorer</title>
 
-  <link rel="stylesheet" href="main.83d72365c0d53568f961.css">
+  <link rel="stylesheet" href="main.686da3d24c40ab5871c7.css">
 </head>
 <body>
   <div class="root">
     <header class="header">
-
+   <div class="header__menu-block">
       <div class="head">
         <div class="logo">
           <h1 class="logo__text">NewsExplorer</h1>
       </div>
+
       <nav class="menu">
-        <ul class="menu-ul">
+        <img class="menu__icon-all" alt ="icon" src="./images/menu.png">
+        <img src="./images/close.svg" alt="icon" class="menu__close-icon invisible">
+        <ul class="menu-ul menu__is-closed">
           <li class="menu__button active"><a href="index.html" class="link menu__link active-link">Главная</a></li>
           <li class="menu__button menu__button_type_saves "><a href="news.html" class="link menu__link">Сохраненные статьи</a></li>
           <li class="menu__button menu__button_type_auth invisible"><span class="link menu__link active-link">Авторизоваться</span></li>
@@ -44,6 +59,7 @@
         </ul>
       </nav>
       </div>
+    </div>
       <div class="search">
         <h2 class="search__title">Что в мире творится?</h2>
         <h3 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h3>
@@ -67,6 +83,7 @@
             ничего не найдено.</p>
         </section>
         <section class="news-result root__section">
+        <div class="news-result__container">
           <h2 class="news-result__title">Результаты поиска</h2>
           <div class="cards-container">
             <div class="card">
@@ -115,7 +132,7 @@
           </div>
 
           <button type="button" class="button button_color_white button_type_show">Показать еще</button>
-
+  </div>
        </section>
     <section class="about">
       <img class="about__avatar" alt ="avatar" src="./images/author-avatar.png">
@@ -129,10 +146,10 @@
       <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
       <nav class="footer__links">
         <ul class="footer__ul">
-          <li class="footer__li "><a href="index.html" class="link footer__link footer__link-main">Главная</a></li>
-          <li class="footer__li"><a href="https://praktikum.yandex.ru" target="_blank" class="link footer__link footer__link-praktikum">Яндекс.Практикум</a></li>
-          <li class="footer__li"><a href="https://github.com/ocfonta/news-explorer-frontend" class="link footer__icon-gh"><img class="footer__icon footer__icon-gh" alt ="icon" src="./images/github-icon.png"></a></li>
-          <li class="footer__li"><a href="https://facebook.com/" class="link"><img class="footer__icon" alt ="icon" src="./images/fb-icon.png"></a></li>
+          <li class="footer__li footer__link-main"><a href="index.html" class="link footer__link footer__link-main">Главная</a></li>
+          <li class="footer__li footer__link-praktikum"><a href="https://praktikum.yandex.ru" target="_blank" class="link footer__link footer__link-praktikum">Яндекс.Практикум</a></li>
+          <li class="footer__li footer__icon-gh"><a href="https://github.com/ocfonta/news-explorer-frontend" class="link footer__icon-gh"><img class="footer__icon" alt ="icon" src="./images/github-icon.png"></a></li>
+          <li class="footer__li footer__icon-fb"><a href="https://facebook.com/" class="link "><img class="footer__icon footer__icon-fb" alt ="icon" src="./images/fb-icon.png"></a></li>
         </ul>
      </nav>
   </footer>
@@ -185,29 +202,7 @@
         </form>
       </div>
     </div>
-<!-- -->
 
-    <!-- <div class="popup" id="profile">
-      <div class="popup__content">
-         <img src="./images/close.svg" alt="" class="popup__close" id="popup__close-edit">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form popup__form-edit" name="edit" >
-            <input type="text" name="nameUser" id="username" class="popup__input popup__input_type_user-name" required minlength="2" maxlength="30" placeholder="Имя">
-            <span id="error-name" class="error-message"></span>
-
-            <input type="text" name="jobUser" id="about" class="popup__input popup__input_type_user-job" required minlength="2" maxlength="30" placeholder="О себе">
-            <span id="error-job" class="error-message" name="userJobError"></span>
-            <button type class="button popup__button popup__edit-button" disabled>Сохранить</button>
-        </form>
-      </div>
-    </div>
-
-      <div class="popup" id="popup-img">
-        <div class="popup__content" id="popup__content-img">
-            <img src="./images/close.svg" alt="" class="popup__close" id="popup__close-img">
-        </div>
-      </div>
-  </div> -->
   <script src="main.31aa8026d22272c4a9f8.js"></script>
 </body>
 
