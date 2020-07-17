@@ -1,0 +1,13 @@
+.about__author {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top:51px;
+}
+@media all and (min-width: 420px) and (max-width:1023px) {
+  .about__author {
+margin-top: 0;
+
+}
+
+}

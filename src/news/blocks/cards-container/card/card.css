@@ -1,0 +1,108 @@
+@import url(./__save-button/card__save-button.css);
+
+@import url(./__image/card__image.css);
+@import url(./__date/card__date.css);
+@import url(./__description/card__description.css);
+@import url(./__content/card__content.css);
+@import url(./__source/card__source.css);
+@import url(./__link/card__link.css);
+@import url(./__keyword/card__keyword.css);
+.card {
+  background-color: #ffff;
+  border-radius: 24px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  max-width: 400px;
+  height: 576px;
+
+  box-sizing: border-box;
+  overflow: hidden;
+
+
+
+}
+.card:hover  {
+  opacity: .9;
+  box-shadow: inset -1px 0px 1px 1.5px rgb(0, 0, 0, .2);
+  background: linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.02));
+}
+
+
+@media all and (min-width: 500px) and (max-width : 830px) {
+  .card {
+    height: 420px;
+    text-overflow: ellipsis;
+  }
+  .card__image{
+    width: 224px;
+    height: 150px;
+    margin-bottom: 16px;
+
+}
+.card__date {
+  margin-left: 16px;
+}
+.card__description {
+  height: 72px;
+  font-size: 22px;
+line-height: 24px;
+margin: 12px 16px 10px;
+overflow: hidden;
+text-overflow: ellipsis;
+
+}
+.card__content {
+  height: 88px;
+  font-size: 16px;
+  line-height: 22px;
+margin: 0 16px 0px;
+overflow: hidden;
+text-overflow: ellipsis;
+
+
+}
+.card__source {
+  bottom: 16px;
+left: 16px;
+}
+}
+@media all  and (max-width : 500px) {
+  .card {
+    height: 444px;
+    text-overflow: ellipsis;
+  }
+  .card__image{
+    width: 288px;
+    height: 196px;
+    margin-bottom: 16px;
+
+}
+.card__date {
+  margin-left: 16px;
+}
+.card__description {
+  height: 56px;
+  font-size: 22px;
+line-height: 28px;
+margin: 10px 16px 10px;
+overflow: hidden;
+text-overflow: ellipsis;
+
+}
+.card__content {
+  height: 88px;
+  font-size: 16px;
+  line-height: 22px;
+margin: 0 16px 0px;
+overflow: hidden;
+text-overflow: ellipsis;
+
+
+}
+.card__source {
+  bottom: 16px;
+left: 16px;
+}
+}
+

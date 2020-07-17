@@ -1,0 +1,25 @@
+.card__save-icon {
+background-image: url('../../../../../images/saveiconinactive.svg');
+background-position: center;
+width:40px;
+height: 40px;
+position: absolute;
+border-radius: 8px;
+top:24px;
+right:24px;
+margin:0px;
+border-color: transparent;
+  cursor: pointer;
+}
+
+.card__save-icon_state_nosaved:hover {
+  background-image: url('../../../../../images/saveiconhover.svg');
+  opacity: 1;
+}
+/* .card__save-icon:focus {
+  background-image: url('../../../../../images/saveiconactive.png');
+} */
+.card__save-icon_state_saved {
+  background-image: url('../../../../../images/saveiconactive.png');
+}
+

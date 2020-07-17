@@ -1,0 +1,20 @@
+.footer__link {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+
+
+  text-align: center;
+
+
+
+  color: #1A1B22;
+}
+.footer__link-main {
+  margin-right: 28px;
+}
+.footer__link-praktikum {
+  margin-right: 40px;
+}

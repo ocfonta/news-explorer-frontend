@@ -1,0 +1,18 @@
+.news-result__container {
+  margin:auto;
+text-align: center;
+  max-width: 1232px;
+}
+@media all and (min-width: 830px) and (max-width : 1280px) {
+  .news-result__container{
+
+ max-width: 816px;
+}
+}
+
+@media all and (min-width: 600px) and (max-width : 830px) {
+  .news-result__container{
+
+ max-width: 90%;
+}
+}

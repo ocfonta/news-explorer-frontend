@@ -1,0 +1,34 @@
+.head {
+
+  padding: 0 104px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+  min-height: 80px;
+  /* background: rgba(196, 196, 196, 0.01); */
+  box-shadow: inset 0px -1px 0px #D1D2D6;
+  margin-bottom: 0;
+}
+@media all and (min-width: 660px) and (max-width:1280px) {
+  .head {
+    padding: 0 40px;
+}
+
+}
+@media all and (max-width : 660px) {
+  .head {
+    padding: 0 16px;
+    min-height: 56px;
+
+}
+.logo {
+  max-width: 117px;
+}
+.logo__text {
+  font-size: 16px;
+line-height: 24px;
+}
+
+
+}

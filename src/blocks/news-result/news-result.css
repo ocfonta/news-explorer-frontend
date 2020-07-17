@@ -1,0 +1,34 @@
+@import url(./__title/news-result__title.css);
+@import url(./__notfound-image/news-result__notfound-image.css);
+@import url(./__notf-title/news-result__notf-title.css);
+@import url(./__notf-title/news-result__notf-description.css);
+@import url(./__container/news-result__container.css);
+
+.news-result {
+margin:0px;
+  background-color: #F5F6F7;
+  padding-top: 80px;
+
+
+}
+.news-result_type_notfound {
+  padding-bottom: 80px;
+}
+
+@media all  and ( min-width:600px ) and (max-width : 1024px) {
+  .news-result {
+ padding-top:40px;
+}
+}
+
+@media all  and (max-width : 600px) {
+  .news-result {
+ padding-top:32px;
+}
+}
+
+
+
+
+
+

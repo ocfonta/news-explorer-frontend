@@ -1,0 +1,67 @@
+@import url(./__title/search__title.css);
+@import url(./__subtitle/search__subtitle.css);
+@import url(./__form/search__form.css);
+@import url(./__container/search__container.css);
+.search {
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+margin : 0 auto;
+}
+@media all  and (min-width:660px) and (max-width:769px) {
+  .search__title {
+    font-size: 36px;
+    line-height: 40px;
+    max-width: 385px;
+    margin: 38px 0 16px ;
+}
+.search__subtitle {
+  font-size: 18px;
+  line-height: 24px;
+  max-width: 452px;
+
+}
+
+.search__input {
+  width: 448px;
+height: 56px;
+}
+}
+@media all  and (max-width:660px) {
+  .search__title {
+
+    max-width: 285px;
+
+
+ margin:0 0 16px ;
+    font-size: 36px;
+    line-height: 40px;
+}
+.search__container {
+  margin-top: 122px;
+  display: flex;
+  flex-direction: column;
+align-items: center;
+}
+.search__news-button {
+  position: relative;
+margin-top: 16px;
+}
+
+.search__subtitle {
+  font-size: 18px;
+  line-height: 24px;
+  max-width: 288px;
+
+}
+.search {
+  margin: 30px auto 0 ;
+}
+.search__input {
+  width: 288px;
+  height: 56px;
+}
+.search__form {
+  margin:0;
+}
+}

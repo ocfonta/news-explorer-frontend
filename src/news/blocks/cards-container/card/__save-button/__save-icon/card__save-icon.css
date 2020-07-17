@@ -1,0 +1,19 @@
+.card__delete-icon {
+background-image: url('../../../../../../images/trash.svg');
+background-position: center;
+background-repeat: no-repeat;
+width:40px;
+height: 40px;
+position: absolute;
+border-radius: 8px;
+top:24px;
+right:24px;
+margin:0px;
+border-color: transparent;
+  cursor: pointer;
+}
+
+.card__delete-icon:hover {
+  background-image: url('../../../../../../images/trashhover.svg');
+  opacity: 1;
+}
