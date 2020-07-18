@@ -1,0 +1,27 @@
+@import url(./card/card.css);
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  grid-gap: 16px 16px;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+@media all and (min-width: 500px) and (max-width : 830px) {
+  .cards-container{
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fill, 224px);
+    grid-gap: 8px 8px;
+    padding-bottom: 32px;
+
+}
+}
+@media all and (max-width : 500px) {
+  .cards-container{
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fill, 288px);
+    grid-gap: 10px;
+    padding-bottom: 24px;
+
+}
+}

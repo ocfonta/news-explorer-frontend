@@ -1,0 +1,209 @@
+<!-- Модификатор active для menu__button управляет box-shadow для активной страницы
+
+    Модификатор invisible скрывает разделы
+
+    active-link меняет цвет текста
+
+    у чекбоксов сохранения планирую менять цвет через js, добавляя модификаторы
+
+    попыталась показать все, что требуется, модификатор кнопки card__save-button_state_nolog добавляет сообщение "Войдите, чтобы сохр. статьи"
+
+   у popup закомменчен display:none, временно попапы скрыты под классом invisible, в дальнейшем открытие попапов будет реализовано через display:none
+
+   для popup__button добавляется hover если есть модификатор button_color_blue, добавляется js после того, как с кнопки снят disable
+   Я показала разные состояния в попапах, в попапе 'вход' (не залочено, hover работает), в попапе 'регистрация' кнопка залочена, hover не работает, как и active соответственно
+
+    меню на маленьких экранах регулируется модификатором invisible и  menu__is-open и menu__is-closed, а также header__is-open
+    для корректного отображения меню:
+    1) Состояние открытого меню:
+       1. к header__menu-block добавить модификатор header__is-open
+       2. к menu-ul добавить модификатор menu__is-open
+       3. Изображению menu__icon-all добавляется модиф invisible
+       4. У изображения menu__close-icon убирается модиф invisible
+    2) Закрытое меню:
+       1. у header__menu-block убрать модификатор header__is-open
+       2. у menu-ul сменить  модификатор menu__is-open на  menu__is-closed
+       3. Изображению menu__close-icon  добавляется модиф invisible
+       4. У изображения menu__icon-all убирается модиф invisible
+-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Люба Пономарева">
+  <meta name="description" content="Сайт по поиску и сохранению новостей">
+  <link rel="icon" href="<%=require('./images/favicon.png').default%>" type="image/svg">
+  <title>News-explorer</title>
+
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+</head>
+<body>
+  <div class="root">
+    <header class="header">
+   <div class="header__menu-block">
+      <div class="head">
+        <div class="logo">
+          <h1 class="logo__text">NewsExplorer</h1>
+      </div>
+
+      <nav class="menu">
+        <img class="menu__icon-all" alt ="icon" src="<%=require('./images/menu.png').default%>">
+        <img src="<%=require('./images/close.svg').default%>" alt="icon" class="menu__close-icon invisible">
+        <ul class="menu-ul menu__is-closed">
+          <li class="menu__button active"><a href="index.html" class="link menu__link active-link">Главная</a></li>
+          <li class="menu__button menu__button_type_saves "><a href="news.html" class="link menu__link">Сохраненные статьи</a></li>
+          <li class="menu__button menu__button_type_auth invisible"><span class="link menu__link active-link">Авторизоваться</span></li>
+          <li class="menu__button menu__button_type_profile"><a href="" class="link menu__link"><span class="menu__link-span active-link">Грета </span><img class="menu__icon" alt ="icon" src="<%=require('./images/union.svg').default%>"></a></li>
+        </ul>
+      </nav>
+      </div>
+    </div>
+      <div class="search">
+        <h2 class="search__title">Что в мире творится?</h2>
+        <h3 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h3>
+        <form class="search__form" name="newstheme">
+        <div class="search__container">
+          <input type="text" name="news" class="search__input" placeholder="Введите тему новости">
+          <button class="button button_color_blue search__news-button">Искать</button>
+        </div>
+      </form>
+      </div>
+    </header>
+        <!-- Раздел поиска  -->
+    <section class="news-result news-result_type_prelouder root__section invisible" >
+      <i class="circle-preloader"></i>
+      <p class="news-result__preloader-text">Идет поиск новостей...</p>
+    </section>
+        <section class="news-result news-result_type_notfound root__section invisible">
+          <img class="news-result__notfound-image" alt ="not_found" src="<%=require('./images/not-found_v1.svg').default%>">
+          <h3 class="news-result__notf-title">Ничего не найдено</h3>
+          <p class="news-result__notf-description">К сожалению по вашему запросу
+            ничего не найдено.</p>
+        </section>
+        <section class="news-result root__section">
+        <div class="news-result__container">
+          <h2 class="news-result__title">Результаты поиска</h2>
+          <div class="cards-container">
+            <div class="card">
+      <div class="card__save-button card__save-button_state_nolog">
+        <span class="card__nolog-notice ">Войдите, чтобы сохранять статьи</span>
+            <button type="button" class="card__save-icon card__save-icon_state_nosaved"></button>
+       </div>
+
+             <a href="https://lenta.ru/" class="card__link" target="_blank">
+                <img class="card__image" alt ="image" src="<%=require('./images/image_08.png').default%>">
+                <span class="card__date">2 августа, 2019</span>
+                <p class="card__description">Национальное достояние – парки</p>
+                <p class="card__content">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                <span class="card__source">Лента.ру</span>
+             </a>
+          </div>
+          <div class="card">
+            <div class="card__save-button">
+              <span class="card__nolog-notice">Войдите, чтобы сохранять статьи</span>
+                  <button type="button" class="card__save-icon card__save-icon_state_saved"></button>
+             </div>
+            <a href="https://meduza.io/" class="card__link" target="_blank">
+            <img class="card__image" alt ="image" src="<%=require('./images/image_04.png').default%>">
+            <span class="card__date">2 августа, 2019</span>
+            <p class="card__description">Лесные огоньки: история одной фотографии</p>
+            <p class="card__content">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
+              из местных чудес природы.</p>
+            <span class="card__source">медуза</span>
+          </a>
+        </div>
+        <div class="card">
+          <div class="card__save-button card__save-button_state_nolog">
+            <span class="card__nolog-notice">Войдите, чтобы сохранять статьи</span>
+                <button type="button" class="card__save-icon card__save-icon_state_nosaved"></button>
+           </div>
+          <a href="https://ria.ru/" class="card__link" target="_blank">
+          <img class="card__image" alt ="image" src="<%=require('./images/image_07.png').default%>">
+          <span class="card__date">2 августа, 2019</span>
+          <p class="card__description">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</p>
+          <p class="card__content">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+          <span class="card__source">риа</span>
+        </a>
+        </div>
+
+
+          </div>
+
+          <button type="button" class="button button_color_white button_type_show">Показать еще</button>
+  </div>
+       </section>
+    <section class="about">
+      <img class="about__avatar" alt ="avatar" src="<%=require('./images/author-avatar.png').default%>">
+       <div class="about__author">
+         <h2 class ="about__title">Об авторе</h2>
+         <p class = "about__text about__text-info">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+         <p class = "about__text about__text-info">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+       </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
+      <nav class="footer__links">
+        <ul class="footer__ul">
+          <li class="footer__li footer__link-main"><a href="index.html" class="link footer__link footer__link-main">Главная</a></li>
+          <li class="footer__li footer__link-praktikum"><a href="https://praktikum.yandex.ru" target="_blank" class="link footer__link footer__link-praktikum">Яндекс.Практикум</a></li>
+          <li class="footer__li footer__icon-gh"><a href="https://github.com/ocfonta/news-explorer-frontend" class="link footer__icon-gh"><img class="footer__icon" alt ="icon" src="<%=require('./images/github-icon.png').default%>"></a></li>
+          <li class="footer__li footer__icon-fb"><a href="https://facebook.com/" class="link "><img class="footer__icon footer__icon-fb" alt ="icon" src="<%=require('./images/fb-icon.png').default%>"></a></li>
+        </ul>
+     </nav>
+  </footer>
+<!-- popup -->
+   <div class="popup invisible" id="signin" >
+      <div class="popup__content">
+         <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
+        <h3 class="popup__title">Вход</h3>
+        <form class="popup__form" name="signin">
+          <span class="popup__form-description">Email</span>
+          <input type="text" name="email"  class="popup__input popup__input_type_email " placeholder="Введите почту">
+          <span id="error-email" class="popup__error-message ">Неверный формат email</span>
+          <span class="popup__form-description">Пароль</span>
+          <input type="text" name="password" class="popup__input popup__input_type_password" required minlength="6"  placeholder="Введите пароль">
+          <span id="error-password" class="popup__error-message" name="password-error">Пароль должен содержать менее 6 символов</span>
+          <button type="button" class="popup__button button_color_blue">Войти</button>
+
+
+        </form>
+        <span class="popup__else-message">или <span class="link popup__else-popup-link">Зарегистрироваться</span>
+      </div>
+    </div>
+    <div class="popup invisible" id="signup" >
+      <div class="popup__content">
+         <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
+        <h3 class="popup__title">Регистрация</h3>
+        <form class="popup__form" name="signup">
+          <span class="popup__form-description">Email</span>
+          <input type="text" name="email"  class="popup__input popup__input_type_email" placeholder="Введите почту">
+          <span id="error-email" class="popup__error-message">Неверный формат email</span>
+          <span class="popup__form-description">Пароль</span>
+          <input type="text" name="password" class="popup__input popup__input_type_password" required minlength="6"  placeholder="Введите пароль">
+          <span id="error-password" class="popup__error-message" name="password-error">Пароль должен содержать менее 6 символов</span>
+          <span class="popup__form-description">Имя</span>
+          <input type="text" name="email"  class="popup__input popup__input_type_email" placeholder="Введите ваше имя">
+          <span id="error-name" class="popup__error-message">Такой пользователь уже есть</span>
+          <button type class="popup__button" disabled>Зарегистрироваться</button>
+
+
+        </form>
+        <span class="popup__else-message">или <span class="link popup__else-popup-link">Войти</span>
+      </div>
+    </div>
+    <div class="popup invisible" id="successfully" >
+           <div class="popup__content popup__content_type_success">
+         <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
+        <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+          <span class="link popup__else-popup-link popup__else-popup-link-success">Выполнить вход</span>
+
+        </form>
+      </div>
+    </div>
+
+  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+
+</html>

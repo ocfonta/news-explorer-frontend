@@ -1,0 +1,33 @@
+@import url(./__save-icon/card__save-icon.css);
+
+.card__delete-button {
+  position: relative;
+
+
+}
+.card__delete-notice {
+  display: none;
+}
+.card__delete-button:hover .card__delete-notice {
+  position: absolute;
+  width: 182px;
+  opacity: 1;
+  top: 24px;
+  right: 69px;
+  height: 40px;
+background: #FFFFFF;
+box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
+border-radius: 10px;
+font-family: 'Roboto Medium', Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+
+color: #000000;
+
+}

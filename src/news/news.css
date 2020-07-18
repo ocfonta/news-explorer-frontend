@@ -1,0 +1,26 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts.css);
+@import url(../blocks/head/head.css);
+@import url(./blocks/menu/menu.css);
+@import url(../blocks/link/link.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/logo/logo.css);
+@import url(./blocks/news-header/news-header.css);
+@import url(../blocks/news-result/news-result.css);
+@import url(./blocks/cards-container/cards-container.css);
+@import url(../blocks/root/root.css);
+@import url(../blocks/button/button.css);
+@import url(../blocks/popup/popup.css);
+
+.invisible {
+  display: none;
+}
+.active {
+  box-shadow: inset 0px -3px 0px #1A1B22;
+
+}
+@media all  and (max-width : 660px) {
+.active {
+  box-shadow: none;
+}
+}

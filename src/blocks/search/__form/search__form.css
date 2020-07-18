@@ -1,0 +1,15 @@
+.search__form {
+
+  max-width: 608px;
+margin-top:64px;
+
+}
+@media all  and (max-width:768px) {
+  .search__form{
+
+  max-width: 448px;
+    margin-top:48px;
+
+}
+
+}

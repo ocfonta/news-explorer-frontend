@@ -1,0 +1,134 @@
+@import url(./__copyright/footer__copyright.css);
+@import url(./__link/footer__link.css);
+@import url(./__icon/footer__icon.css);
+@import url(./__ul/footer__ul.css);
+@import url(./__li/footer__li.css);
+.footer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+  min-height: 80px;
+}
+@media all and (min-width: 725px) and (max-width : 1000px) {
+ .footer__copyright {
+  font-size: 16px;
+  line-height: 22px;
+  margin: 24px 0 18px 40px;
+ }
+ .footer__ul {
+  font-size: 18px;
+  line-height: 24px;
+  margin-right: 20px;
+ }
+ .footer__li {
+ margin: 12px 0 9px;
+ }
+.footer__icon-gh {
+  margin-right: 12px;
+}
+.footer__link-praktikum {
+  margin-right: 12px;
+}
+.footer__link-main {
+  margin-right: 9.5px;
+}
+.footer__icon-fb {
+  object-fit: contain;
+border-radius: 6px;
+border-color: transparent;
+}
+}
+@media all and (min-width:430px) and  (max-width : 725px) {
+  .footer {
+    flex-direction: column-reverse;
+
+  }
+    .footer__copyright {
+ z-index: 1;
+      font-size: 16px;
+      line-height: 22px;
+      margin:0px;
+      justify-self: flex-end;
+     }
+     .footer__ul {
+       margin:0px;
+      font-size: 18px;
+      line-height: 24px;
+
+     }
+     .footer__li {
+     margin: 24px 0 18px;
+     }
+    .footer__icon-gh {
+      margin-right: 24px;
+    }
+    .footer__link-praktikum {
+      margin-right: 24px;
+    }
+    .footer__link-main {
+      margin-right: 19px;
+    }
+    .footer__icon-fb {
+      object-fit: contain;
+    border-radius: 12px;
+    border-color: transparent;
+    }
+
+ }
+ @media all and  (max-width : 430px) {
+  .footer {
+    min-height: 64px;
+    flex-direction: column-reverse;
+ margin-top: 20px;
+    justify-content: flex-start;
+
+  }
+    .footer__copyright {
+   margin: 38px 0 22px;
+      font-size: 16px;
+      line-height: 22px;
+
+
+     }
+
+     .footer__ul {
+      width: 288px;
+      margin:0;
+      display: grid;
+      grid-template-columns: 1fr 36px 36px;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 24px;
+      justify-content: center;
+      font-size: 18px;
+      line-height: 24px;
+
+     }
+     .footer__li {
+     margin: 0;
+     }
+    .footer__icon-gh {
+      margin: 0;
+order: 2;
+
+    }
+    .footer__link-praktikum {
+order: 4;
+margin: 0;
+    }
+    .footer__link-main {
+order:1;
+margin: 0;
+    }
+
+    .footer__icon-fb {
+order: 3;
+      object-fit: contain;
+    border-radius: none;
+    border-color: transparent;
+    }
+
+ }
+/* @media all and (min-width: 768px) and (max-width : 830px) {
+
+} */

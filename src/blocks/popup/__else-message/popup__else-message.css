@@ -1,0 +1,26 @@
+.popup__else-message {
+  width: 226px;
+  font-family: 'Inter',Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+margin: 0 auto;
+color: #000000;
+
+}
+.popup__else-popup-link {
+  color: #2F71E5;
+}
+.popup__else-popup-link-success {
+margin-top: 14px;
+font-family: 'Inter', Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 22px;
+
+color: #2F71E5;
+
+}

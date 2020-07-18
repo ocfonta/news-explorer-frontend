@@ -1,0 +1,39 @@
+.news-result__title {
+  text-align: start;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 46px;
+color: #1A1B22;
+margin: 0 0 64px;
+
+}
+@media all and (min-width: 1232px) and (max-width : 1279px) {
+  .news-result__title {
+
+ max-width: 816px;
+}
+}
+
+@media all and (min-width: 830px) and (max-width : 1232px) {
+  .news-result__title {
+    margin: 0 0 32px;
+ max-width: 712px;
+}
+}
+@media all and (min-width: 600px) and (max-width : 830px) {
+  .news-result__title {
+    margin: 0 0 32px;
+ max-width: 400px;
+}
+}
+@media all  and (max-width : 600px) {
+  .news-result__title {
+    margin: 0 auto 24px;
+    max-width: 288px;
+}
+}
+
+
+

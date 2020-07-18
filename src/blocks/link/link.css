@@ -1,0 +1,18 @@
+.link {
+  text-decoration: none;
+}
+.link:hover {
+  opacity: .6;
+}
+.active {
+  box-shadow: inset 0px -3px 0px  rgba(255, 255, 255, 1);
+
+}
+.active-link {
+  color: #fff;
+}
+@media all and (max-width : 660px) {
+.active {
+  box-shadow: none;
+}
+}
