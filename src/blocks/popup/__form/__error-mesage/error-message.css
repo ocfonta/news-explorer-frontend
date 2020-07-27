@@ -9,6 +9,11 @@
   transition: .25s;
   padding: 0px;
   margin-bottom: 13px;
-  opacity: 0;
+
+
+}
+.server-error {
+  margin: 0 auto 5px;
+  text-align: center;
 
 }

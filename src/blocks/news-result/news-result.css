@@ -13,6 +13,10 @@ margin:0px;
 }
 .news-result_type_notfound {
   padding-bottom: 80px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media all  and ( min-width:600px ) and (max-width : 1024px) {

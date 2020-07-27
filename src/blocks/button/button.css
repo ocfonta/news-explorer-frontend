@@ -12,8 +12,17 @@ border-color: transparent;
   cursor: pointer;
 }
 
-button:focus {
+.button:focus {
   outline: none;
+  background: #2A65CC;
+}
+
+.button:hover {
+  outline: none;
+  background: #347EFF;
+}
+.button:active {
+  background: #2A65CC;
 }
 .button_color_blue {
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);

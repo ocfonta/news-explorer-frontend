@@ -8,7 +8,10 @@
 }
 @media all and (max-width: 768px) {
   .popup__close {
-display: none;
+    width: 24px;
+    height: 24px;
+    top: -46px;
+    right:4px;
 }
 
 

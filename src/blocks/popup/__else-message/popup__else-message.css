@@ -12,6 +12,7 @@ color: #000000;
 }
 .popup__else-popup-link {
   color: #2F71E5;
+  cursor: pointer;
 }
 .popup__else-popup-link-success {
 margin-top: 14px;
