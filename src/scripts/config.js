@@ -1,5 +1,5 @@
 
-const urlMainApi = process.env.NODE_ENV === 'development' ? 'http://mestopraktikum.xyz' : 'http://mestopraktikum.xyz';
+const urlMainApi = process.env.NODE_ENV === 'development' ? 'https://mestopraktikum.xyz' : 'https://mestopraktikum.xyz';
 const urlNewsApi = process.env.NODE_ENV === 'development' ? 'https://praktikum.tk/news/v2/everything' : 'https://praktikum.tk/news/v2/everything';
 const date = Date.now();
 const to = new Date(date);

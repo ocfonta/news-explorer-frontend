@@ -5,10 +5,13 @@ import {configMain} from '../scripts/config.js'
 import NewsCards from '../scripts/newsCards.js';
 import Cards from '../scripts/Cards.js';
 import MenuChange from '../scripts/menuChange.js';
+import KeywordsRanking from '../scripts/keywordsRanking.js';
+
 
 const authToken = localStorage.getItem('auth');
 
 const apiMain = new Api(configMain, null, null, null, null);
+const keyRank = new KeywordsRanking();
 // проверка авторизации
 if (authToken !== null) {
   apiMain.getUserInfo();
@@ -27,17 +30,15 @@ const newsCard = new NewsCards(
     return card;
   }, 0
 );
+
 apiMain.getUserSaves()
   .then((data) => {
-    const newsAmount = document.querySelector('.news-header__articles-amount');
-    let i = 0;
-     document.querySelectorAll('.news-header__keyword').forEach((e) => {
-         e.textContent = data.article[i].keyword;
-         i++;
-    });
-    document.querySelector('.news-header__keywords-more').textContent = `${(data.article.length - 2)} другим` ;
-    newsAmount.textContent = data.article.length;
 
+    // Грета у вас * сохраненных статей
+    const newsAmount = document.querySelector('.news-header__articles-amount');
+    newsAmount.textContent = data.article.length;
+    // Настройка кейвордов
+     keyRank.keywordsAdd(data);
      newsCard.renderSavedCard(data);
 
   });

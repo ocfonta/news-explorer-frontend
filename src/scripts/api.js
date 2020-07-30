@@ -85,7 +85,7 @@ export default class Api {
              errMessage.classList.remove('invisible');
              errMessage.textContent = 'Неверный Email или пароль';
            }
-           return {error: res.status};
+           Promise.reject(`Произошла ошибка: ${res.status}`);
        }
    }
   //  информация о пользователе
@@ -100,6 +100,7 @@ export default class Api {
         headers: this.headers,
         credentials: 'include',
         withCredentials: true,
+
       })
       .then((data) => this._handleResultOther(data))
       .then((data) => {
@@ -195,11 +196,11 @@ export default class Api {
   }
 
   _handleResultOther(res) {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return {error: res.status};
+    if (!res.ok) {
+      return Promise.reject(`Произошла ошибка: ${res.status}`);
     }
+
+     return res.json();
   }
   _errorHandler(e) {
       return {error: e.message};

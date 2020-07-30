@@ -210,6 +210,7 @@ export default class Cards {
     }
   }
   }
+
   delete(event) {
 
     this.apiMain.deleteNews(this.id)
@@ -220,7 +221,7 @@ export default class Cards {
       const newsAmount = document.querySelector('.news-header__articles-amount');
       const num = newsAmount.textContent - 1;
       newsAmount.textContent = num;
-      document.querySelector('.news-header__keywords-more').textContent = `${(num - 2)} другим` ;
+      // document.querySelector('.news-header__keywords-more').textContent = `${(num - 2)} другим` ;
       delContainer.removeChild(delCard);
     } );
 
