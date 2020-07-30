@@ -16,10 +16,11 @@ export default class NewsApi {
   }
 
   _handleResult(res) {
-    if (res.ok) {
-
-      return res.json();
+    if (!res.ok) {
+      return Promise.reject(`Произошла ошибка: ${res.status}`);
     }
+
+     return res.json();
   }
 
   _handleError(e) {

@@ -40,8 +40,6 @@ export default class Api {
       {
         method: method,
         headers: this.headers,
-        credentials: 'include',
-        withCredentials: true,
         body: JSON.stringify({
           email: email,
           password: password,

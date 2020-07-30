@@ -22,6 +22,7 @@ export default class Cards {
 
      createCard() {
 
+
       //  состояние логина
     const token = localStorage.getItem('auth');
  const parent = document.querySelector('.cards-container');
@@ -77,7 +78,6 @@ export default class Cards {
   // content
   const content = document.createElement('p');
   content.classList.add('card__content');
-
   if (this.content.length > 140) {
     content.textContent = `${this.content.slice(0, 140)}...`;
   } else {
@@ -108,7 +108,8 @@ export default class Cards {
   parent.appendChild(cardDiv);
  this.cardElement = cardDiv;
   return cardDiv;
-   }
+
+  }
    saveArticleCreate() {
 
 
