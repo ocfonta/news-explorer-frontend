@@ -20,7 +20,7 @@ export default class NewsCards {
       document.querySelector('.news-result_type_notfound').classList.add('invisible');
       document.querySelector('.news-result__title').classList.remove('invisible');
     for (let i = lengthPoint; i < (this.articleNum + 3); i++) {
-      if(!(card[i].urlToImage == null || card[i].publishedAt == null ||  card[i].title == null || card[i].description == null || card[i].source.name == null))
+      if(!(card[i].urlToImage == null || card[i].publishedAt == null ||  card[i].title == null || card[i].description == null || card[i].source.name == null || card[i].url == null))
       {
         this.saveCard (
           this.cardCreate(card[i].urlToImage, card[i].publishedAt, card[i].title, card[i].description, card[i].source.name, card[i].url, card[i]._id)

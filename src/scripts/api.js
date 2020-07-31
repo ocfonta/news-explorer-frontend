@@ -27,8 +27,7 @@ export default class Api {
           password: password
         })
       })
-      .then((data) => this._handleResult(data))
-      .catch((e) => this._errorHandler(e));
+      .then((data) => this._handleResult(data));
   }
 // регистрация
   signup(email, password, name) {
@@ -46,8 +45,7 @@ export default class Api {
           name: name
         })
       })
-      .then((data) => this._handleResult(data))
-      .catch((e) => this._errorHandler(e));
+      .then((data) => this._handleResult(data));
   }
 // обработчик попапов
   _handleResult(res) {
@@ -104,14 +102,16 @@ export default class Api {
       .then((data) => {
         this._addUserName(data);
       })
-      .catch((e) => this._errorHandler(e));
    }
    _addUserName (data) {
      const nameUser = data.name;
      const logOutButt = document.querySelector('.menu__link-logout-name');
      const userNameSaves = document.querySelector('.userName');
      logOutButt.textContent = nameUser;
-     userNameSaves.textContent = nameUser;
+     if (userNameSaves !== null) {
+      userNameSaves.textContent = nameUser;
+     }
+
    }
   // сохранение статьи
   saveNews(keyword, title, text, date, source, link, image) {
@@ -139,7 +139,6 @@ export default class Api {
       },
     )
       .then((data) => this._handleResultOther(data))
-      .catch((e) => this._errorHandler(e));
   }
   // получить  сохраненные статьи
    getUserSaves() {
@@ -155,7 +154,6 @@ export default class Api {
         withCredentials: true,
       })
       .then(this._handleResultOther)
-      .catch((e) => this._errorHandler(e));
    }
    // удаление статьи
   deleteNews(id) {
@@ -174,7 +172,6 @@ export default class Api {
       },
     )
       .then(this._handleResult)
-      .catch(this._errorHandler);
   }
   //  выход
    logOut() {
@@ -190,7 +187,6 @@ export default class Api {
       withCredentials: true,
     })
       .then(this._handleResultOther)
-      .catch(this._errorHandler);
   }
 
   _handleResultOther(res) {
@@ -200,7 +196,7 @@ export default class Api {
 
      return res.json();
   }
-  _errorHandler(e) {
-      return {error: e.message};
+  errorHandler(res) {
+    return Promise.reject(`Произошла ошибка: ${res.status}`);
   }
 }

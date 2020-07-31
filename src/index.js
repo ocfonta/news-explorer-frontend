@@ -42,7 +42,8 @@ document.forms.signin.addEventListener('submit', (event) => {
   event.preventDefault();
   const email = document.forms.signin.email.value;
   const password = document.forms.signin.password.value;
-  apiMain.signin(email, password);
+  apiMain.signin(email, password)
+  .catch((res) => apiMain.errorHandler(res));
 });
 // регистрация
 document.forms.signup.addEventListener('submit', (event) => {
@@ -50,7 +51,8 @@ document.forms.signup.addEventListener('submit', (event) => {
   const email = document.forms.signup.email.value;
   const password = document.forms.signup.password.value;
   const name = document.forms.signup.name.value;
-  apiMain.signup(email, password, name);
+  apiMain.signup(email, password, name)
+  .catch((res) => apiMain.errorHandler(res));
 });
 // открытие попапа
 popupAuth.setEventListeners();
@@ -100,16 +102,15 @@ document.forms.newstheme.addEventListener('submit', (event) => {
       document.querySelector('.news-result_type_prelouder').classList.add('invisible');
       document.querySelector('.news-result_type_success').classList.remove('invisible');
       newsCard.renderCard(data);
-
     })
-    .catch((err) => {
-console.log(err);
+    .catch((res) => {
+    newsApiReq.handeError(res);
+    console.log(res);
     document.querySelector('.news-result_type_notfound').classList.remove('invisible');
     document.querySelector('.news-result__notf-title').textContent = 'Во время запроса произошла ошибка';
     document.querySelector('.news-result__notf-description').textContent = 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
-    })
+    });
   } else  {
-
     document.querySelector('.news-result_type_notfound').classList.remove('invisible');
     document.querySelector('.news-result_type_success').classList.add('invisible');
     document.querySelector('.news-result__notf-description').textContent = 'Вы не ввели тему новости';
@@ -127,6 +128,7 @@ document.querySelector('.button_type_show').addEventListener('click', () => {
       newsCard.renderCard(data);
     })
     .catch((err) => {
+      newsApiReq.handeError(err);
 console.log(err);
     document.querySelector('.news-result_type_notfound').classList.remove('invisible');
     document.querySelector('.news-result__notf-title').textContent = 'Во время запроса произошла ошибка';

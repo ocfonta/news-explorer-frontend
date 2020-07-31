@@ -12,7 +12,6 @@ export default class NewsApi {
     return fetch(this.config.reqNewsString + 'q=' + this.keyword + this.config.apiKey)
       .then(document.querySelector('.news-result_type_prelouder').classList.remove('invisible'))
       .then(this._handleResult)
-      .catch(this._handleError);
   }
 
   _handleResult(res) {
@@ -23,8 +22,8 @@ export default class NewsApi {
      return res.json();
   }
 
-  _handleError(e) {
-    return { error: e };
+  handleError(e) {
+    return Promise.reject(`Произошла ошибка: ${e.status}`);
   }
 
 }

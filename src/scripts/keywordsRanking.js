@@ -47,7 +47,7 @@ export default class KeywordsRanking {
        if (keywords.length === 3) {
         keywordPlace.textContent = `${keywords[0].word}, ${keywords[1].word} и ${keywords[2].word}`;
        } else {
-        keywordPlace.textContent = `${keywords[0].word}, ${keywords[1].word} и ${data.article.length -2} другим`;
+        keywordPlace.textContent = `${keywords[0].word}, ${keywords[1].word} и ${keywords.length -2} другим`;
        }
    } else if (keywords.length === 2) {
     keywordPlace.textContent = `${keywords[0].word} и ${keywords[1].word}`;
