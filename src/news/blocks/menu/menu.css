@@ -33,6 +33,7 @@
 .menu__button_type_profile {
   width: 112px;
   display: flex;
+  flex-wrap: nowrap;
   height: 48px;
   border: 1px solid #D1D2D6;
   box-sizing: border-box;
@@ -42,7 +43,11 @@
   justify-content: center;
 
 }
-
+.menu__link-auth {
+  max-height: 24px;
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  text-overflow: ellipsis;
+}
 
 .menu__button_type_auth {
   width: 176px;
@@ -136,10 +141,13 @@ padding-left: 16px;
 height: 56px;
 }
 .menu__button_type_profile {
+
   margin: 0px auto;
- padding-top:15px;
+  padding-top:15px;
+  padding-bottom: 15px;
   align-items: center;
 }
+
 .menu__is-closed {
   display: none;
 }

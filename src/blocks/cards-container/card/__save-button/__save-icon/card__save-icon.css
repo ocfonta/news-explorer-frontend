@@ -10,6 +10,7 @@ right:24px;
 margin:0px;
 border-color: transparent;
   cursor: pointer;
+  outline: none;
 }
 
 .card__save-icon_state_nosaved:hover {
