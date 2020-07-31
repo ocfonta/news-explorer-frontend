@@ -99,7 +99,6 @@ document.forms.newstheme.addEventListener('submit', (event) => {
     newsCard.сleanAll();
     newsApiReq.getNews()
     .then((data) => {
-      console.log(data);
       document.querySelector('.news-result_type_prelouder').classList.add('invisible');
       document.querySelector('.news-result_type_success').classList.remove('invisible');
       newsCard.renderCard(data);
