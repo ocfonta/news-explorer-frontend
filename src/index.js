@@ -121,26 +121,6 @@ document.forms.newstheme.addEventListener('submit', (event) => {
     document.querySelector('.news-result__notf-description').textContent = 'Вы не ввели тему новости';
   }
 });
-// document.querySelector('.button_type_show').addEventListener('click', () => {
-
-//   const newsKeyword = document.forms.newstheme.elements.news.value;
-
-//   const newsApiReq = new NewsApi(configNews, newsKeyword);
-//     newsApiReq.getNews()
-//     .then((data) => {
-//       document.querySelector('.news-result_type_prelouder').classList.add('invisible');
-//       document.querySelector('.news-result_type_success').classList.remove('invisible');
-//       newsCard.renderCard(data);
-//     })
-//     .catch((err) => {
-//       newsApiReq.handeError(err);
-// console.log(err);
-//     document.querySelector('.news-result_type_notfound').classList.remove('invisible');
-//     document.querySelector('.news-result__notf-title').textContent = 'Во время запроса произошла ошибка';
-//     document.querySelector('.news-result__notf-description').textContent = 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
-//     })
-// });
-//  мобильное меню
  menuChangeFunc.mobileListener()
 
 
