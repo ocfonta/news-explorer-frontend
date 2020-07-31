@@ -3,7 +3,9 @@ const urlMainApi = process.env.NODE_ENV === 'development' ? 'https://mestoprakti
 const urlNewsApi = process.env.NODE_ENV === 'development' ? 'https://praktikum.tk/news/v2/everything' : 'https://praktikum.tk/news/v2/everything';
 const date = Date.now();
 const to = new Date(date);
-const from = new Date(date - 7*24*3600*1000);
+const time = 7*24*3600*1000;
+const from = new Date(date - time);
+
 const configMain = {
   baseUrl: urlMainApi,
   headers: {

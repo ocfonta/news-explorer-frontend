@@ -2,14 +2,14 @@
 
 import "./style.css";
 import Popup from "./scripts/popup.js";
-import FormValidator from './scripts/formValidator.js';
+import FormValidator from './scripts/utils/formValidator.js';
 
-import Api from './scripts/api.js';
-import NewsApi from './scripts/newsApi.js';
-import {configMain, configNews} from './scripts/config.js'
-import MenuChange from './scripts/menuChange.js';
-import NewsCards from './scripts/newsCards.js';
-import Cards from './scripts/Cards.js';
+import Api from './scripts/api/api.js';
+import NewsApi from './scripts/api/newsApi.js';
+import {configMain, configNews} from './scripts/constants/config.js'
+import MenuChange from './scripts/utils/menuChange.js';
+import NewsCards from './scripts/components/newsCards.js';
+import Cards from './scripts/components/Cards.js';
 
 const newForm = document.forms.signup;
 const authForm = document.forms.signin;
@@ -99,14 +99,19 @@ document.forms.newstheme.addEventListener('submit', (event) => {
     newsCard.сleanAll();
     newsApiReq.getNews()
     .then((data) => {
+      console.log(data);
       document.querySelector('.news-result_type_prelouder').classList.add('invisible');
       document.querySelector('.news-result_type_success').classList.remove('invisible');
       newsCard.renderCard(data);
+      document.querySelector('.button_type_show').addEventListener('click', () => {
+        newsCard.renderCard(data);
+      });
     })
     .catch((res) => {
-    newsApiReq.handeError(res);
+    newsApiReq.handleError(res);
     console.log(res);
     document.querySelector('.news-result_type_notfound').classList.remove('invisible');
+    document.querySelector('.news-result_type_success').classList.add('invisible');
     document.querySelector('.news-result__notf-title').textContent = 'Во время запроса произошла ошибка';
     document.querySelector('.news-result__notf-description').textContent = 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
     });
@@ -116,25 +121,25 @@ document.forms.newstheme.addEventListener('submit', (event) => {
     document.querySelector('.news-result__notf-description').textContent = 'Вы не ввели тему новости';
   }
 });
-document.querySelector('.button_type_show').addEventListener('click', () => {
+// document.querySelector('.button_type_show').addEventListener('click', () => {
 
-  const newsKeyword = document.forms.newstheme.elements.news.value;
+//   const newsKeyword = document.forms.newstheme.elements.news.value;
 
-  const newsApiReq = new NewsApi(configNews, newsKeyword);
-    newsApiReq.getNews()
-    .then((data) => {
-      document.querySelector('.news-result_type_prelouder').classList.add('invisible');
-      document.querySelector('.news-result_type_success').classList.remove('invisible');
-      newsCard.renderCard(data);
-    })
-    .catch((err) => {
-      newsApiReq.handeError(err);
-console.log(err);
-    document.querySelector('.news-result_type_notfound').classList.remove('invisible');
-    document.querySelector('.news-result__notf-title').textContent = 'Во время запроса произошла ошибка';
-    document.querySelector('.news-result__notf-description').textContent = 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
-    })
-});
+//   const newsApiReq = new NewsApi(configNews, newsKeyword);
+//     newsApiReq.getNews()
+//     .then((data) => {
+//       document.querySelector('.news-result_type_prelouder').classList.add('invisible');
+//       document.querySelector('.news-result_type_success').classList.remove('invisible');
+//       newsCard.renderCard(data);
+//     })
+//     .catch((err) => {
+//       newsApiReq.handeError(err);
+// console.log(err);
+//     document.querySelector('.news-result_type_notfound').classList.remove('invisible');
+//     document.querySelector('.news-result__notf-title').textContent = 'Во время запроса произошла ошибка';
+//     document.querySelector('.news-result__notf-description').textContent = 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
+//     })
+// });
 //  мобильное меню
  menuChangeFunc.mobileListener()
 

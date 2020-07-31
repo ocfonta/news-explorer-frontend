@@ -7,8 +7,8 @@ export default class NewsCards {
   }
 
   renderCard(inNewsCards) {
-    const card = inNewsCards.articles;
-    if (card.length === 0) {
+    const cards = inNewsCards.articles;
+    if (cards.length === 0) {
       document.querySelector('.news-result_type_notfound').classList.remove('invisible');
       document.querySelector('.news-result__title').classList.add('invisible');
       document.querySelector('.button_type_show').classList.add('invisible');
@@ -20,15 +20,21 @@ export default class NewsCards {
       document.querySelector('.news-result_type_notfound').classList.add('invisible');
       document.querySelector('.news-result__title').classList.remove('invisible');
     for (let i = lengthPoint; i < (this.articleNum + 3); i++) {
-      if(!(card[i].urlToImage == null || card[i].publishedAt == null ||  card[i].title == null || card[i].description == null || card[i].source.name == null || card[i].url == null))
+      if(!(cards[i].urlToImage == null || cards[i].publishedAt == null ||  cards[i].title == null || cards[i].description == null || cards[i].source.name == null || cards[i].url == null))
       {
         this.saveCard (
-          this.cardCreate(card[i].urlToImage, card[i].publishedAt, card[i].title, card[i].description, card[i].source.name, card[i].url, card[i]._id)
+          this.cardCreate(cards[i].urlToImage, cards[i].publishedAt, cards[i].title, cards[i].description, cards[i].source.name, cards[i].url, cards[i]._id)
           )
       } else {
         this.articleNum++;
       }
+
         lengthPoint++;
+        if (cards.length === lengthPoint) {
+          document.querySelector('.button_type_show').classList.add('invisible');
+          break;
+        }
+
     }
     this.articleNum = lengthPoint;
     }
@@ -40,17 +46,17 @@ this.articleNum = 0;
 document.querySelector('.cards-container').textContent = '';
   }
   renderSavedCard(inSaveCards) {
-    const card = inSaveCards.article;
-    if (card.length === 0) {
+    const cards = inSaveCards.article;
+    if (cards.length === 0) {
       document.querySelector('.news-result_type_notfound').classList.remove('invisible');
 
     }
     else {
       document.querySelector('.news-result_type_notfound').classList.add('invisible');
-    for (let i = 0; i < card.length; i++) {
+    for (let i = 0; i < cards.length; i++) {
       this.deleteCard (
 
-        this.cardCreate(card[i].image, card[i].date, card[i].title, card[i].text, card[i].source, card[i].keyword, card[i].link, card[i]._id)
+        this.cardCreate(cards[i].image, cards[i].date, cards[i].title, cards[i].text, cards[i].source, cards[i].keyword, cards[i].link, cards[i]._id)
         )
     }
     }

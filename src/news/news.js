@@ -1,11 +1,11 @@
 
 import "./news.css";
-import Api from '../scripts/api';
-import {configMain} from '../scripts/config.js'
-import NewsCards from '../scripts/newsCards.js';
-import Cards from '../scripts/Cards.js';
-import MenuChange from '../scripts/menuChange.js';
-import KeywordsRanking from '../scripts/keywordsRanking.js';
+import Api from '../scripts/api/api';
+import {configMain} from '../scripts/constants/config.js'
+import NewsCards from '../scripts/components/newsCards.js';
+import Cards from '../scripts/components/Cards.js';
+import MenuChange from '../scripts/utils/menuChange.js';
+import KeywordsRanking from '../scripts/utils/keywordsRanking.js';
 
 
 const authToken = localStorage.getItem('auth');

@@ -171,7 +171,7 @@ export default class Api {
         headers: this.headers,
       },
     )
-      .then(this._handleResult)
+      .then(this._handleResultOther)
   }
   //  выход
    logOut() {

@@ -4,10 +4,10 @@ export default class KeywordsRanking {
 
   }
  _keyWordsRank(data) {
-  let keysArray = [];
+  const keysArray = [];
     const dada = data.article
     for (let icon in dada) {
-    let keyObj = {};
+    const keyObj = {};
     let keyValue =  dada[icon].keyword ;
     keyObj.word = keyValue.toLowerCase();
     keysArray.push(keyObj);
